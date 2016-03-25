@@ -102,26 +102,6 @@ $places = array(
 $key = array_key_exists($pref, $places);
 
 // var_dump($key);
-
-if($key === false)
-{
-  echo '観光スポットなし';
-}
-else
-{
-  $displays = $places[$pref];
-  if(count($displays))
-     {
-     foreach ($displays as $display)
-     {
-      foreach($display as $theme => $contents)
-        echo  $theme  . $contents . '<br>';
-             }
-  }
-}
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -184,7 +164,7 @@ else
           <div class="media">
           <div class="media-left">
           <?php if($theme === 'image') : ?>
-          <img src="<?php echo $contents; ?>" class="media-object img-thumbnail">
+          <?php echo '<img src="' . $contents . '" class="media-object img-thumbnail" >' ; ?>
           <?php endif; ?>
           </div>
 
@@ -197,6 +177,7 @@ else
           <?php echo $contents; ?>
           <?php endif; ?>
           </div>
+
           </div>
         <?php endforeach; ?>
       <?php endforeach; ?>
