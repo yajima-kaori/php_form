@@ -2,6 +2,19 @@
 $pref = $_POST['pref'];
 // var_dump($pref);
 
+$prefectures = array(
+  8  => "茨城県",
+  9  => "栃木県",
+  10 => "群馬県",
+  11 => "埼玉県",
+  12 => "千葉県",
+  13 => "東京都",
+  14 => "神奈川県",
+);
+
+$selectedpref = $prefectures[$pref];
+
+
 // 観光スポットデータ
 //   name   : スポットの名前
 //   detail : スポットの説明
@@ -82,21 +95,35 @@ $places = array(
   ),
 );
 
-$pref
-$places
+//var_dump($places);
+// var_dump($places[$pref]);
+// var_dump($pref);
 
-//もし配列の中に数値があれば､その配列を表示する
-if( $place[$pref] === '')
+$key = array_key_exists($pref, $places);
+
+// var_dump($key);
+
+if($key === false)
 {
   echo '観光スポットなし';
 }
-else{
-  echo $place[$pref];
+else
+{
+  $displays = $places[$pref];
+  if(count($displays))
+     {
+     foreach ($displays as $display)
+     {
+      foreach($display as $theme => $contents)
+        echo  $theme  . $contents . '<br>';
+             }
+  }
 }
 
 
 
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -123,26 +150,62 @@ else{
 <body>
   <h1>関東地方の観光スポット検索</h1>
   <div class="container">
+
     <form class="form-inline" action="" method="post">
       <div class="form-group">
         <select name="pref" class="form-control">
-          <option value="">選択してください</option>
+          <option value="" selected><?php echo $selectedpref ?></option>
+          <?php foreach($prefectures as $number => $prefecture) : ?>
+          <option value= "<?php echo $number; ?>" ><?php echo $prefecture; ?>
+          </option>
+         <?php endforeach; ?>
         </select>
       </div>
       <button class="btn btn-primary btn-sm"> 検 索 </button>
     </form>
-    <p class="search-result">東京都の観光スポットは 3 件見つかりました。</p>
-    <div class="media">
-      <div class="media-left">
-        <img src="place_1.jpg" class="media-object img-thumbnail">
-      </div>
-      <div class="media-body">
-        <h4 class="media-heading">緑の階段</h4>
-        緑の階段はとても良い所です。緑の階段はとても良い所です。緑の階段はとても良い所です。
-        緑の階段はとても良い所です。緑の階段はとても良い所です。緑の階段はとても良い所です。
-        緑の階段はとても良い所です。緑の階段はとても良い所です。
-      </div>
-    </div>
+
+    <p class="search-result">
+      <?php if( $key === false) : ?>
+      <?php echo $selectedpref; ?>
+      の観光スポットは見つかりませんでした｡
+      <?php exit;?>
+      <?php endif ;?>
+      <?php if($key === true ) :?>
+      <?php $displays = $places[$pref]; ?>
+      <?php echo $selectedpref; ?>の観光スポットは
+      <?php echo count($displays); ?> 件見つかりました｡
+    </p>
+
+
+
+      <?php if(count($displays)) : ?>
+      <?php foreach ($displays as $display) : ?>
+        <?php foreach($display as $theme => $contents) : ?>
+          <div class="media">
+          <div class="media-left">
+          <?php if($theme === 'image') : ?>
+          <img src="<?php echo $contents; ?>" class="media-object img-thumbnail">
+          <?php endif; ?>
+          </div>
+
+          <div class="media-body">
+          <h4 class="media-heading">
+          <?php if($theme === 'name') : ?>
+          <?php echo $contents; ?></h4>
+          <?php endif; ?>
+          <?php if($theme === 'detail') : ?>
+          <?php echo $contents; ?>
+          <?php endif; ?>
+          </div>
+          </div>
+        <?php endforeach; ?>
+      <?php endforeach; ?>
+    <?php endif; ?>
+    <?php endif; ?>
+
+
+
+
   </div>
   <hr>
   <footer>&copy; 観光スポット検索協会 </footer>

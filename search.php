@@ -41,7 +41,7 @@ $prefectures = array(
         <select name="pref" class="form-control">
           <option value="" selected>選択してください</option>
          <?php foreach($prefectures as $number => $prefecture) : ?>
-          <option value="<?php echo $number; ?>"><?php echo $prefecture; ?></option>
+          <option value= "<?php echo $number; ?>" ><?php echo $prefecture; ?></option>
          <?php endforeach ?>
         </select>
       </div>
