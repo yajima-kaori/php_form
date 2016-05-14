@@ -1,0 +1,266 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>関東地方の観光スポット検索</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <script src ="jquery-2.2.4.js"></script>
+  <script>
+    $(function(){
+      $(".claer").click(function(){
+      $("#ibaraki").hide();
+      $("#tochigi").hide();
+      $("#gunma").hide();
+      $("#saitama").hide();
+      $("#chiba").hide();
+      $("#tokyo").hide();
+      $("#kanagawa").hide();
+      })
+    });
+
+    $(function(){
+      $("#ibaraki").hide();
+      $("#tochigi").hide();
+      $("#gunma").hide();
+      $("#saitama").hide();
+      $("#chiba").hide();
+      $("#tokyo").hide();
+      $("#kanagawa").hide();
+
+      $("form").change(function(){
+      var value = $('select[name="pref"]').val();
+      console.log(value);
+      if(value == 8)
+      {
+        $("#ibaraki").show();
+        $("form").change(function(){
+           $("#ibaraki").hide();
+        });
+      }
+      else if(value == 9)
+      {
+        $("#tochigi").show();
+        $("form").change(function(){
+        $("#tochigi").hide();
+        });
+      }
+      else if(value == 10)
+      {
+        $("#gunma").show();
+        $("form").change(function(){
+        $("#gunma").hide();
+        });
+      }
+      else if(value == 11)
+      {
+        $("#saitama").show();
+        $("form").change(function(){
+        $("#saitama").hide();
+        });
+      }
+      else if(value == 12)
+      {
+        $("#chiba").show();
+        $("form").change(function(){
+        $("#chiba").hide();
+        });
+      }
+      else if(value == 13)
+      {
+        $("#tokyo").show();
+        $("form").change(function(){
+        $("#tokyo").hide();
+        });
+      }
+      else if(value == 14)
+      {
+        $("#kanagawa").show();
+        $("form").change(function(){
+        $("#kanagawa").hide();
+        });
+      }
+
+      });
+    });
+  </script>
+  <style>
+
+    h1 {
+      margin: 0 0 30px 0;
+      padding: 20px 30px;
+      border-bottom: 1px solid #ccc;
+      background-color: #f8f8f8;
+    }
+    footer {
+      text-align:center;
+    }
+    .search-result {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>関東地方の観光スポット検索</h1>
+  <div class="container">
+
+    <form class="form-inline" action="" method="post">
+      <div class="form-group">
+        <select name="pref" class="form-control">
+        <option value="" selected>選択してください</option>
+        <option value="8">茨城県</option>
+        <option value="9" class= "9">栃木県</option>
+        <option value="10">群馬県</option>
+        <option value="11">埼玉県</option>
+        <option value="12">千葉県</option>
+        <option value="13">東京都</option>
+        <option value="14">神奈川県 </option>
+        </select>
+      </div>
+      <button type="clear" class="clear">クリア</button>
+    </form>
+
+          <div id="ibaraki">
+          <p class="search-result">
+            茨城県の観光スポットは見つかりませんでした｡
+          </p>
+        </div>
+
+        <div id="tochigi">
+          <p class="search-result">
+            栃木県の観光スポットは1 件見つかりました｡
+          </p>
+          <div class="media">
+          <div class="media-left">
+          <img src="img/place_4.jpg" class="media-object img-thumbnail" ?>
+          </div>
+
+          <div class="media-body">
+            <h4 class="media-heading">西洋の邸宅</h4>
+            西洋の邸宅はとても良い所です。西洋の邸宅はとても良い所です。
+            西洋の邸宅はとても良い所です。西洋の邸宅はとても良い所です。
+            西洋の邸宅はとても良い所です。西洋の邸宅はとても良い所です。
+            西洋の邸宅はとても良い所です。西洋の邸宅はとても良い所です。
+            </div>
+          </div>
+        </div>
+
+          <div id="gunma">
+          <p class="search-result">
+          群馬県の観光スポットは1件見つかりました｡</p>
+          <div class="media">
+          <div class="media-left">
+          <img src="img/place_5.jpg" class="media-object img-thumbnail" ?>
+          </div>
+
+          <div class="media-body">
+          <h4 class="media-heading">赤い門</h4>
+          赤い門はとても良い所です。赤い門はとても良い所です。
+          赤い門はとても良い所です。赤い門はとても良い所です。
+          赤い門はとても良い所です。赤い門はとても良い所です。
+          赤い門はとても良い所です。赤い門はとても良い所です。
+          </div>
+          </div>
+        </div>
+
+        <div id="saitama">
+          <p class="search-result">
+            埼玉県の観光スポットは見つかりませんでした｡
+          </p>
+        </div>
+
+          <div id="chiba">
+          <p class="search-result">
+            千葉県の観光スポットは見つかりませんでした｡
+          </p>
+        </div>
+
+        <div id= "tokyo">
+          <p class="search-result">
+            東京都の観光スポットは3件見つかりました｡</p>
+
+          <div class="media">
+          <div class="media-left">
+          <img src="img/place_1.jpg" class="media-object img-thumbnail" ?>
+          </div>
+
+          <div class="media-body">
+          <h4 class="media-heading">緑の階段</h4>
+          緑の階段はとても良い所です。緑の階段はとても良い所です。
+          緑の階段はとても良い所です。緑の階段はとても良い所です。
+          緑の階段はとても良い所です。緑の階段はとても良い所です。
+          緑の階段はとても良い所です。緑の階段はとても良い所です。
+          </div>
+
+          </div>
+          <div class="media">
+          <div class="media-left">
+          <img src="img/place_6.jpg" class="media-object img-thumbnail" ?>
+          </div>
+
+          <div class="media-body">
+          <h4 class="media-heading">雷門</h4>
+          雷門はとても良い所です。雷門はとても良い所です。雷門はとても良い所です。
+          雷門はとても良い所です。雷門はとても良い所です。雷門はとても良い所です。
+          雷門はとても良い所です。雷門はとても良い所です。
+          </div>
+
+          </div>
+          <div class="media">
+          <div class="media-left">
+          <img src="img/place_7.jpg" class="media-object img-thumbnail" ?>
+          </div>
+
+          <div class="media-body">
+          <h4 class="media-heading">東京タワー</h4>
+          東京タワーはとても良い所です。東京タワーはとても良い所です。
+          東京タワーはとても良い所です。東京タワーはとても良い所です。
+          東京タワーはとても良い所です。東京タワーはとても良い所です。
+          東京タワーはとても良い所です。東京タワーはとても良い所です｡
+          </div>
+
+        </div>
+      </div>
+
+      <div id="kanagawa"
+       <p class="search-result">
+        神奈川県の観光スポットは2件見つかりました｡</p>
+
+           <div class="media">
+          <div class="media-left">
+          <img src="img/place_2.jpg" class="media-object img-thumbnail" ?>
+          </div>
+
+          <div class="media-body">
+          <h4 class="media-heading">日本の城</h4>
+          日本の城はとても良い所です。日本の城はとても良い所です。
+          日本の城はとても良い所です。日本の城はとても良い所です。
+          日本の城はとても良い所です。日本の城はとても良い所です。
+          日本の城はとても良い所です。日本の城はとても良い所です。
+          </div>
+
+          </div>
+          <div class="media">
+          <div class="media-left">
+          <img src="img/place_3.jpg" class="media-object img-thumbnail" ?>
+          </div>
+          <div class="media-body">
+          <h4 class="media-heading">旅館の部屋</h4>
+          旅館の部屋はとても良い所です。旅館の部屋はとても良い所です。
+          旅館の部屋はとても良い所です。旅館の部屋はとても良い所です。
+          旅館の部屋はとても良い所です。旅館の部屋はとても良い所です。
+          旅館の部屋はとても良い所です。旅館の部屋はとても良い所です。
+          </div>
+
+          </div>
+        </div>
+
+  </div>
+
+  </div>
+  <hr>
+  <footer>&copy; 観光スポット検索協会 </footer>
+</body>
+</html>
