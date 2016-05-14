@@ -138,6 +138,9 @@ $key = array_key_exists($pref, $places);
           <option value= "<?php echo $number; ?>"
           <?php if($pref == $number) : ?>selected <?php endif; ?>>
           <?php echo $prefecture; ?>
+          <option value="" selected><?php echo $selectedpref ?></option>
+          <?php foreach($prefectures as $number => $prefecture) : ?>
+          <option value= "<?php echo $number; ?>" ><?php echo $prefecture; ?>
           </option>
          <?php endforeach; ?>
         </select>
@@ -149,7 +152,7 @@ $key = array_key_exists($pref, $places);
       <?php if( $key === false) : ?>
       <?php echo $selectedpref; ?>
       の観光スポットは見つかりませんでした｡
-
+      <?php exit;?>
       <?php endif ;?>
       <?php if($key === true ) :?>
       <?php $displays = $places[$pref]; ?>
@@ -169,12 +172,33 @@ $key = array_key_exists($pref, $places);
           <div class="media-body">
           <h4 class="media-heading"><?php echo $display['name']; ?></h4>
           <?php echo $display['detail']; ?>
+
+        <?php foreach($display as $theme => $contents) : ?>
+          <div class="media">
+          <div class="media-left">
+          <?php if($theme === 'image') : ?>
+          <?php echo '<img src="' . $contents . '" class="media-object img-thumbnail" >' ; ?>
+          <?php endif; ?>
+          </div>
+
+          <div class="media-body">
+          <h4 class="media-heading">
+          <?php if($theme === 'name') : ?>
+          <?php echo $contents; ?></h4>
+          <?php endif; ?>
+          <?php if($theme === 'detail') : ?>
+          <?php echo $contents; ?>
+          <?php endif; ?>
           </div>
 
           </div>
         <?php endforeach; ?>
     <?php endif; ?>
   <?php endif; ?>
+      <?php endforeach; ?>
+    <?php endif; ?>
+    <?php endif; ?>
+
 
   </div>
   <hr>
